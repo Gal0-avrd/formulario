@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Información Personal</title>
+</head>
+<body>
+    <h1>Formulario de Información Personal</h1>
+
+    <form id="formulario">
+        <!-- Nombres -->
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required><br><br>
+
+        <!-- Número de cédula -->
+        <label for="cedula">Número de Cédula:</label>
+        <input type="text" id="cedula" name="cedula" required><br><br>
+
+        <!-- Fecha de nacimiento -->
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+
+        <!-- Ciudad -->
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" required><br><br>
+
+        <!-- Correo -->
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required><br><br>
+
+        <!-- Teléfono -->
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required><br><br>
+
+        <!-- Dirección -->
+        <label for="direccion">Dirección:</label><br>
+        <textarea id="direccion" name="direccion" rows="4" cols="50" required></textarea><br><br>
+
+        <!-- Estado Civil -->
+        <label for="estado_civil">Estado Civil:</label>
+        <select id="estado_civil" name="estado_civil" required>
+            <option value="soltero">Soltero</option>
+            <option value="casado">Casado</option>
+            <option value="divorciado">Divorciado</option>
+            <option value="viudo">Viudo</option>
+        </select><br><br>
+
+        <!-- Etnia -->
+        <label for="etnia">Etnia:</label>
+        <select id="etnia" name="etnia" required>
+            <option value="mestizo">Mestizo</option>
+            <option value="indigena">Indígena</option>
+            <option value="afrodescendiente">Afrodescendiente</option>
+            <option value="blanco">Blanco</option>
+            <option value="otro">Otro</option>
+        </select><br><br>
+
+        <!-- Género -->
+        <label>Género:</label><br>
+        <input type="radio" id="masculino" name="genero" value="masculino" required>
+        <label for="masculino">Masculino</label><br>
+        <input type="radio" id="femenino" name="genero" value="femenino" required>
+        <label for="femenino">Femenino</label><br>
+        <input type="radio" id="otro_genero" name="genero" value="otro" required>
+        <label for="otro_genero">Otro</label><br><br>
+
+        <!-- Hábitos -->
+        <label>Habitos:</label><br>
+        <label>¿Fuma?</label>
+        <input type="checkbox" name="fuma" value="si"><br>
+
+        <label>¿Toma alcohol?</label>
+        <input type="checkbox" name="alcohol" value="si"><br>
+
+        <label>¿Consume drogas?</label>
+        <input type="checkbox" name="drogas" value="si"><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe
+    
+            // Capturar los datos
+            const datos = {
+                nombres: document.getElementById("nombres").value,
+                cedula: document.getElementById("cedula").value,
+                fecha_nacimiento: document.getElementById("fecha_nacimiento").value,
+                ciudad: document.getElementById("ciudad").value,
+                correo: document.getElementById("correo").value,
+                telefono: document.getElementById("telefono").value,
+                direccion: document.getElementById("direccion").value,
+                estado_civil: document.getElementById("estado_civil").value,
+                etnia: document.getElementById("etnia").value,
+                genero: document.querySelector('input[name="genero"]:checked').value,
+                fuma: document.querySelector('input[name="fuma"]')?.checked ? "Sí" : "No",
+                alcohol: document.querySelector('input[name="alcohol"]')?.checked ? "Sí" : "No",
+                drogas: document.querySelector('input[name="drogas"]')?.checked ? "Sí" : "No"
+            };
+    
+            // Guardar los datos en localStorage
+            localStorage.setItem("datosFormulario", JSON.stringify(datos));
+    
+            // Redirigir a la página de visualización
+            window.location.href = "visualizar.html";
+        });
+    </script>
+    
+</body>
+</html>
