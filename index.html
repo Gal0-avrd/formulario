@@ -15,7 +15,7 @@
 
         <!-- Número de cédula -->
         <label for="cedula">Número de Cédula:</label>
-        <input type="text" id="cedula" name="cedula" required><br><br>
+        <input type="text" id="cedula" name="cedula" maxlength="10" required><br><br>
 
         <!-- Fecha de nacimiento -->
         <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
@@ -31,7 +31,7 @@
 
         <!-- Teléfono -->
         <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required><br><br>
+        <input type="tel" id="telefono" name="telefono" maxlength="10" required><br><br>
 
         <!-- Dirección -->
         <label for="direccion">Dirección:</label><br>
@@ -76,7 +76,8 @@
         <label>¿Consume drogas?</label>
         <input type="checkbox" name="drogas" value="si"><br><br>
 
-        <button type="submit">Enviar</button>
+        <label for="enviar">Enviar</label>
+        <input type="submit" name="" id="">
     </form>
 
     <script>
